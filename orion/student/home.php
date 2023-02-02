@@ -18,7 +18,7 @@ if(!isset($_SESSION['nisn'])){
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <title>Admin</title>
+    <title>Student</title>
     <style>
         .cardBox{
             position: relative;
@@ -79,7 +79,7 @@ if(!isset($_SESSION['nisn'])){
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 mt-3">
             <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://i.pinimg.com/564x/b3/ce/ba/b3cebae5052eb99a5213ffedf2411693.jpg" alt="hugenerd" width="30" height="30" class="rounded-circle">&nbsp;
+                        <img src="https://i.pinimg.com/564x/ba/14/4b/ba144be1cbeef65034667291e705c2a6.jpg" alt="hugenerd" width="30" height="30" class="rounded-circle">&nbsp;
                         <span class="d-none d-sm-inline mx-1" style="font-weight: bold;">Nakeela Kayra</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="border-radius: 20px;background-color:#1d1d1d">

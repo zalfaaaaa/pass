@@ -33,7 +33,7 @@ $query = $maru->query('SELECT * FROM student')->fetchAll();
 <nav class="navbar navbar-dark" style="background-color:#1d1d1d;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="totoro.png" alt="" width="40" class="d-inline-block ">
+      <img src="../totoro.png" alt="" width="40" class="d-inline-block ">
       &nbsp;SPP Vecna Payment
     </a>
   </div>

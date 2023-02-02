@@ -18,7 +18,7 @@ if(!isset($_SESSION['username'])){
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <title>Admin</title>
+    <title>Staff</title>
     <style>
         .cardBox{
             position: relative;
@@ -79,8 +79,8 @@ if(!isset($_SESSION['username'])){
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 mt-3">
             <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://i.pinimg.com/564x/b3/ce/ba/b3cebae5052eb99a5213ffedf2411693.jpg" alt="hugenerd" width="30" height="30" class="rounded-circle">&nbsp;
-                        <span class="d-none d-sm-inline mx-1" style="font-weight: bold;">Eloisa Jane</span>
+                        <img src="https://i.pinimg.com/564x/b6/0f/02/b60f025cccf935944c5923db695c6ade.jpg" alt="hugenerd" width="30" height="30" class="rounded-circle">&nbsp;
+                        <span class="d-none d-sm-inline mx-1" style="font-weight: bold;">Sean Galael</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="border-radius: 20px;background-color:#1d1d1d">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -110,8 +110,8 @@ if(!isset($_SESSION['username'])){
             <div class="cardBox">
                 <div class="card1">
                     <div class="">
-                        <div class="numbers">Staff</div>
-                        <div class="cardname">Petugas</div>
+                        <div class="numbers">Payment Entry</div>
+                        <div class="cardname">Entry Pembayaran</div>
                     </div>
                     <div class="iconbox">
                         <ion-icon name="person-outline"></ion-icon>
@@ -119,25 +119,8 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="card1">
                     <div class="">
-                        <div class="numbers">Student</div>
-                        <div class="cardname">Siswa</div>
-                    </div>
-                    <div class="iconbox">
-                        <ion-icon name="person-outline"></ion-icon>
-                    </div>
-                </div>
-                <div class="card1">
-                    <div class="">
-                        <div class="numbers">Class</div>
-                        <div class="cardname">Siswa</div>
-                    </div>
-                    <div class="iconbox">
-                        <ion-icon name="person-outline"></ion-icon>
-                    </div>
-                </div>
-                <div class="card1">
-                    <div class="">
-                        <div class="numbers">SPP</div>
+                        <div class="numbers">History Payment</div>
+                        <div class="cardname">Histori Pembayaran</div>
                     </div>
                     <div class="iconbox">
                         <ion-icon name="person-outline"></ion-icon>
