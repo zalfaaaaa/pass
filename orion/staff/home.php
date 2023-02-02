@@ -2,8 +2,8 @@
 
 session_start();
 
-if(!isset($_SESSION['nisn'])){
-    header("location:logins.php");
+if(!isset($_SESSION['username'])){
+    header("location:../login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -80,20 +80,23 @@ if(!isset($_SESSION['nisn'])){
             <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://i.pinimg.com/564x/b3/ce/ba/b3cebae5052eb99a5213ffedf2411693.jpg" alt="hugenerd" width="30" height="30" class="rounded-circle">&nbsp;
-                        <span class="d-none d-sm-inline mx-1" style="font-weight: bold;">Nakeela Kayra</span>
+                        <span class="d-none d-sm-inline mx-1" style="font-weight: bold;">Eloisa Jane</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="border-radius: 20px;background-color:#1d1d1d">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="logout.php">Log out</a></li>
+                        <li><a class="dropdown-item" href="../logout.php">Log out</a></li>
                     </ul>
                 </div>
                 <!-- batas     -->
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item">
                         <a href="#" class="nav-link align-middle px-0 text-light"><ion-icon name="home"></ion-icon>&nbsp;Home</a>
+                    </li>
+                    <li>
+                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-light"><ion-icon name="folder-open"></ion-icon>&nbsp; Payment Entry</a>
                     </li>
                     <li>
                         <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-light"><ion-icon name="timer"></ion-icon>&nbsp; History Payment</a>                    

@@ -1,16 +1,8 @@
 <?php
 session_start();
 
-if(isset($_SESSION['username'])){
-  if ($_SESSION['role']=='admin'){
-    header("location:admin/rumah.php");
-  }
-  if ($_SESSION['role']=='student'){
-    header("location:student/home.php");
-  }
-  if ($_SESSION['role']=='staff'){
-    header("location:staff/home.php");
-  }
+if(isset($_SESSION['nisn'])){
+    header("location:home.php");
 } 
 ?>
 <!DOCTYPE html>
@@ -35,12 +27,12 @@ if(isset($_SESSION['username'])){
         <div class="card text-light" style="border-radius: 2rem;background-color:#1d1d1d">
           <div class="row g-0">
             <div class="col-md-6 col-lg-5 d-none d-md-block">
-              <img src="canva.png"
+              <img src="../canva.png"
                 alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5">
-                <form action="enlog.php" method="post">
+                <form action="enolog.php" method="post">
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <ion-icon name="sparkles" style="font-size: 40px;"></ion-icon>&nbsp;
                     <span class="h1 fw-bold mb-0">SPP Payment</span>
@@ -49,13 +41,8 @@ if(isset($_SESSION['username'])){
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log into your account</h5>
 
                   <div class="form-outline mb-4">
-                    <input type="text" id="form2Example17" name="username" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example17">Username</label>
-                  </div>
-
-                  <div class="form-outline mb-4">
-                    <input type="password" id="form2Example27" name="password" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example27">Password</label>
+                    <input type="text" id="form2Example17" name="nisn" class="form-control form-control-lg" />
+                    <label class="form-label" for="form2Example17">NISN</label>
                   </div>
 
                   <div class="pt-1 mb-4">

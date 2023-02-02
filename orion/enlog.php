@@ -16,12 +16,7 @@ if($query->rowCount()> 0){
         $_SESSION['password'] = $_POST['password'];
         $_SESSION['role'] = "admin";
         header('location:admin/rumah.php');
-    }else if($data['role']=="student"){
-        $_SESSION['username'] = $_POST['username'];
-        $_SESSION['password'] = $_POST['password'];
-        $_SESSION['role'] = "student";
-        header('location:student/home.php');
-    }if($data['role']=="staff"){
+    }else if($data['role']=="staff"){
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['password'] = $_POST['password'];
         $_SESSION['role'] = "staff";
