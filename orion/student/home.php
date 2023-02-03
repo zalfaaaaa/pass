@@ -80,7 +80,7 @@ if(!isset($_SESSION['nisn'])){
             <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://i.pinimg.com/564x/ba/14/4b/ba144be1cbeef65034667291e705c2a6.jpg" alt="hugenerd" width="30" height="30" class="rounded-circle">&nbsp;
-                        <span class="d-none d-sm-inline mx-1" style="font-weight: bold;">Nakeela Kayra</span>
+                        <span class="d-none d-sm-inline mx-1" style="font-weight: bold;"><?php echo $_SESSION['username'];?></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="border-radius: 20px;background-color:#1d1d1d">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -105,36 +105,10 @@ if(!isset($_SESSION['nisn'])){
         <!-- end -->
         <div class="col py-3 konten">
             <div class="cardBox">
-                <div class="card1">
+            <div class="card1">
                     <div class="">
-                        <div class="numbers">Staff</div>
-                        <div class="cardname">Petugas</div>
-                    </div>
-                    <div class="iconbox">
-                        <ion-icon name="person-outline"></ion-icon>
-                    </div>
-                </div>
-                <div class="card1">
-                    <div class="">
-                        <div class="numbers">Student</div>
-                        <div class="cardname">Siswa</div>
-                    </div>
-                    <div class="iconbox">
-                        <ion-icon name="person-outline"></ion-icon>
-                    </div>
-                </div>
-                <div class="card1">
-                    <div class="">
-                        <div class="numbers">Class</div>
-                        <div class="cardname">Siswa</div>
-                    </div>
-                    <div class="iconbox">
-                        <ion-icon name="person-outline"></ion-icon>
-                    </div>
-                </div>
-                <div class="card1">
-                    <div class="">
-                        <div class="numbers">SPP</div>
+                        <div class="numbers">History Payment</div>
+                        <div class="cardname">Histori Pembayaran</div>
                     </div>
                     <div class="iconbox">
                         <ion-icon name="person-outline"></ion-icon>

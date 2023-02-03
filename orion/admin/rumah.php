@@ -48,18 +48,6 @@ if(!isset($_SESSION['username'])){
             background:grey;
             color:#000;
         }
-        .toggle
-        {
-            position: relative;
-            font-size:2.15em;
-            background:#fff;
-            border-radius:8px;
-            width:40px;
-            height:40px;
-            justify-content:center;
-            align-items:center;
-            box-shadow:0 7px 20px rgba(0,0,0,0.10);
-        }
     </style>
 </head>
 <!-- nav -->
@@ -80,7 +68,7 @@ if(!isset($_SESSION['username'])){
             <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://i.pinimg.com/564x/b3/ce/ba/b3cebae5052eb99a5213ffedf2411693.jpg" alt="hugenerd" width="30" height="30" class="rounded-circle">&nbsp;
-                        <span class="d-none d-sm-inline mx-1" style="font-weight: bold;">Julien Khai</span>
+                        <span class="d-none d-sm-inline mx-1" style="font-weight: bold;"><?php echo $_SESSION['username'];?></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="border-radius: 20px;background-color:#1d1d1d">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -93,24 +81,25 @@ if(!isset($_SESSION['username'])){
                 <!-- batas     -->
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0 text-light"><ion-icon name="home"></ion-icon>&nbsp;Home</a>
+                        <a href="rumah.php" class="nav-link align-middle px-0 text-light"><ion-icon name="home"></ion-icon>&nbsp;Home</a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a href="studata.php" class="nav-link px-0 align-middle text-light"><ion-icon name="reader"></ion-icon>&nbsp; Student Data</a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a href="classdata.php" class="nav-link px-0 align-middle text-light"><ion-icon name="reader"></ion-icon>&nbsp; Class Data</a>
                     </li>
-                    <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-light"><ion-icon name="reader"></ion-icon>&nbsp; Staff Data</a>
+                    <li class="nav-item">
+                        <a href="staff.php" class="nav-link px-0 align-middle text-light"><ion-icon name="reader"></ion-icon>&nbsp; Staff Data</a>
                     </li>
-                    <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-light"><ion-icon name="reader"></ion-icon>&nbsp; SPP Data</a>
+                    <li class="nav-item">
+                        <a href="sppd.php" class="nav-link px-0 align-middle text-light"><ion-icon name="reader"></ion-icon>&nbsp; SPP Data</a>
                     </li>
-                    <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-light"><ion-icon name="folder-open"></ion-icon>&nbsp; Payment Entry</a>
-                    </li>
-                        <li><a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-light"><ion-icon name="timer"></ion-icon>&nbsp; History Payment</a>                    
+                    <li class="nav-item">
+                        <a href="#submenu1" class="nav-link px-0 align-middle text-light"><ion-icon name="folder-open"></ion-icon>&nbsp; Payment Entry</a>
+                    </li >
+                    <li class="nav-item">
+                        <a href="#submenu1" class="nav-link px-0 align-middle text-light"><ion-icon name="timer"></ion-icon>&nbsp; History Payment</a>                    
                     </li>
                 </ul>
                 <br>

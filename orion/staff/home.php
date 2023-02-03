@@ -80,7 +80,7 @@ if(!isset($_SESSION['username'])){
             <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://i.pinimg.com/564x/b6/0f/02/b60f025cccf935944c5923db695c6ade.jpg" alt="hugenerd" width="30" height="30" class="rounded-circle">&nbsp;
-                        <span class="d-none d-sm-inline mx-1" style="font-weight: bold;">Sean Galael</span>
+                        <span class="d-none d-sm-inline mx-1" style="font-weight: bold;"><?php echo $_SESSION['username'];?></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="border-radius: 20px;background-color:#1d1d1d">
                         <li><a class="dropdown-item" href="#">Profile</a></li>

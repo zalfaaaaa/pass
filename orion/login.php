@@ -25,47 +25,45 @@ if(isset($_SESSION['username'])){
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Login</title>
 </head>
-<body>
+<body style="font-family: 'Poppins', sans-serif;">
     <section class="min-vh-100" style="background-color: #849FBD;">
   <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-xl-10">
-        <div class="card text-light" style="border-radius: 2rem;background-color:#1d1d1d">
-          <div class="row g-0">
-            <div class="col-md-6 col-lg-5 d-none d-md-block">
-              <img src="canva.png"
-                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
-            </div>
-            <div class="col-md-6 col-lg-7 d-flex align-items-center">
-              <div class="card-body p-4 p-lg-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col col-5">
+        <?php if(isset($_GET['error'])) : ?>
+          <div class="container-fluid">
+            <div class="alert alert-danger text-center" style="width: 500px;margin:auto" role="alert">
+          <a href="login.php" class="btn btn-close" type="button" style="float: left;"></a>
+          <span class="text-center"><?= $_GET['error']?></span>
+          </div>
+        </div>
+        <?php endif ?>
+        <div class="card text-dark" style="border-radius: 2rem;">
+            <div class="col-lg-7 d-flex">
+              <div class="card-body">
                 <form action="enlog.php" method="post">
-                  <div class="d-flex align-items-center mb-3 pb-1">
-                    <ion-icon name="sparkles" style="font-size: 40px;"></ion-icon>&nbsp;
-                    <span class="h1 fw-bold mb-0">SPP Payment</span>
+                  <div class="d-flex mb-3">
+                    <ion-icon name="sparkles" style="font-size: 20px;"></ion-icon>&nbsp;
+                    <span class="fs-3 fw-bold">SPP Payment</span>
+                  </div>
+                    <h5 class="fw-normal mb-3" style="letter-spacing: 1px;">Log into your account</h5>
+                  <div class=" mb-4">
+                    <input type="text" name="username" class="form-control"/>
+                    <label class="form-label" required>Username</label>
                   </div>
 
-                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log into your account</h5>
-
-                  <div class="form-outline mb-4">
-                    <input type="text" id="form2Example17" name="username" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example17">Username</label>
+                  <div class="mb-4">
+                    <input type="password"  name="password" class="form-control " />
+                    <label class="form-label" required>Password</label>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input type="password" id="form2Example27" name="password" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example27">Password</label>
-                  </div>
-
-                  <div class="pt-1 mb-4">
+                  <div class=" mb-3">
                     <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
                   </div>
-
-                  <a href="#!" class="small text-muted">Terms of use.</a>
-                  <a href="#!" class="small text-muted">Privacy policy</a>
                 </form>
-
               </div>
             </div>
           </div>
