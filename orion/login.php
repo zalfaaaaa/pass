@@ -1,76 +1,64 @@
-<?php
-session_start();
-
-if(isset($_SESSION['username'])){
-  if ($_SESSION['role']=='admin'){
-    header("location:admin/rumah.php");
-  }
-  if ($_SESSION['role']=='student'){
-    header("location:student/home.php");
-  }
-  if ($_SESSION['role']=='staff'){
-    header("location:staff/home.php");
-  }
-} 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap csss -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- icon  -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <title>Login</title>
+    <title>3</title>
+    <style>
+        .card{
+            max-width: 350px;
+            max-height: 500px;
+            padding: 30px 30px 30px 30px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 
+                0 5px 9px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.20);
+        }
+    </style>
 </head>
-<body style="font-family: 'Poppins', sans-serif;">
-    <section class="min-vh-100" style="background-color: #849FBD;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center">
-      <div class="col col-5">
-        <?php if(isset($_GET['error'])) : ?>
-          <div class="container-fluid">
-            <div class="alert alert-danger text-center" style="width: 500px;margin:auto" role="alert">
-          <a href="login.php" class="btn btn-close" type="button" style="float: left;"></a>
-          <span class="text-center"><?= $_GET['error']?></span>
-          </div>
-        </div>
-        <?php endif ?>
-        <div class="card text-dark" style="border-radius: 2rem;">
-            <div class="col-lg-7 d-flex">
-              <div class="card-body">
-                <form action="enlog.php" method="post">
-                  <div class="d-flex mb-3">
-                    <ion-icon name="sparkles" style="font-size: 20px;"></ion-icon>&nbsp;
-                    <span class="fs-3 fw-bold">SPP Payment</span>
-                  </div>
-                    <h5 class="fw-normal mb-3" style="letter-spacing: 1px;">Log into your account</h5>
-                  <div class=" mb-4">
-                    <input type="text" name="username" class="form-control"/>
-                    <label class="form-label" required>Username</label>
-                  </div>
-
-                  <div class="mb-4">
-                    <input type="password"  name="password" class="form-control " />
-                    <label class="form-label" required>Password</label>
-                  </div>
-
-                  <div class=" mb-3">
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+<body style="background-color: #E0F1F1;font-family: 'Poppins', sans-serif;">
+<div class="container" style="margin-top: 80px;">
+  <div class="row">
+    <div class="col">
+      <!-- Column -->
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+            <form action="enlog.php" method="post">
+                <div class="d-flex">
+                    <ion-icon name="sparkles" style="font-size: 30px;"></ion-icon>&nbsp;
+                    <h3 class="fw-bold">SPP Payment</h3>
+                </div>
+                <h6 class="fw-normal"><em>Log into your account</em></h6>
+                <div class="mb-3 mt-5">
+                    <label for="form-label" class="fw-bold mb-1">Username</label>
+                    <input type="text" name="username" class="form-control rounded-3" placeholder="Mark Lee" required>
+                </div>
+                <div class="mb-3">
+                    <label for="form-label" class="fw-bold mb-1">Password</label>
+                    <input type="text" name="password" class="form-control rounded-3" placeholder="******" required>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary fw-bold" style="float:right">Login</button>
+                </div>
+            </form>
         </div>
       </div>
     </div>
+    <div class="col">
+      <!-- Column -->
+    </div>
   </div>
-</section>
+</div>
 </body>
 </html>
