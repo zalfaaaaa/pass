@@ -11,7 +11,7 @@ $img = $_POST['img'];
 $adr = $_POST['address'];
 $no = $_POST['phoneno'];
 
-$query = $maru->query("INSERT INTO `student`VALUES (`$nisn`, `$nis`, `$nm`, `$img`, `102`, `$adr`, `$no`, `112`)");
+$query = $maru->query("INSERT INTO `student`(`nisn`, `nis`, `name`, `img`, `idcls`, `address`, `phoneno`, `idspp`) VALUES ('$nisn','$nis','$nm','$img','102','$adr','$no','105')");
 $data = $query->fetch();
 
 if($query){

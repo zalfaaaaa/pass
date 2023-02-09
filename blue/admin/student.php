@@ -143,7 +143,7 @@ if(!isset($_SESSION['username'])){
                 <td><?=$query['address']?></td>
                 <td><?=$query['phoneno']?></td>
                 <td class="align-items-center">
-                    <a href="updatest.php?nisn=<?=$query['nisn'];?>" class="btn btn-sm text-white mb-3" style="background-color: #557153;border-radius:10px"><ion-icon name="create" style="font-size: 20px;"></ion-icon>Update</a>
+                    <a href="upd-stu.php?nisn=<?=$query['nisn'];?>" class="btn btn-sm text-white mb-3" style="background-color: #557153;border-radius:10px"><ion-icon name="create" style="font-size: 20px;"></ion-icon>Update</a>
                     <a href="del-student.php?nisn=<?=$query['nisn'];?>" class="btn btn-danger mb-3 btn-sm text-white" style="border-radius:10px"><ion-icon name="trash-bin" class="text-center" style="font-size: 20px;"></ion-icon>&nbsp;Delete</a>
                 </td>
             </tr>
