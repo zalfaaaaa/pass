@@ -2,6 +2,13 @@
 
 session_start();
 
+include('../connect.php');
+
+$id = $_GET['nisn'];
+
+$query = $maru->query("SELECT * FROM `student` WHERE `nisn`='$id'");
+$data = $query->fetch();
+
 if(!isset($_SESSION['username'])){
     header("location:../login.php");
 }
@@ -42,42 +49,45 @@ if(!isset($_SESSION['username'])){
     <div class="col">
       <div class="card">
         <div class="card-body">
-            <form action="cre-staff.php" method="post">
+            <form action="upg-stud.php" method="post">
                 <div class="d-flex">
-                    <h3 class="fw-bold"><ion-icon name="people" class="text-center"></ion-icon>&nbsp;Staff Data</h3>
+                    <h3 class="fw-bold"><ion-icon name="people" class="text-center"></ion-icon>&nbsp;Student Data</h3>
                 </div>
-                    <h6 class="fw-normal"><em>create new data</em></h6>
+                    <h6 class="fw-normal"><em>update data</em></h6>
                     <hr class="divider"> 
                 <div class="row">
                     <div class="col mt-2 mb-3">
-                        <label for="form-label" class="fw-bold mb-1">Name</label>
-                        <input type="text" name="name" class="form-control rounded-3" placeholder="Mark Lee" required>
+                        <label for="form-label" class="fw-bold mb-1">Nisn</label>
+                        <input type="text" name="nisn" value="<?= $data['nisn']?>" class="form-control rounded-3" placeholder="000000" required>
                     </div>
                     <div class="col mt-2 mb-3">
-                        <label for="form-label" class="fw-bold mb-1">Username</label>
-                        <input type="text" name="username" class="form-control rounded-3" placeholder="Mark" required> 
+                        <label for="form-label" class="fw-bold mb-1">Nis</label>
+                        <input type="text" name="nis" value="<?= $data['nis']?>" class="form-control rounded-3" placeholder="000000" required> 
                     </div>
                 </div>
                 <div class="row">
                     <div class="col mt-2 mb-3">
-                        <label for="form-label" class="fw-bold mb-1">Password</label>
-                        <input type="password" name="password" class="form-control rounded-3" placeholder="****" required>
+                        <label for="form-label" class="fw-bold mb-1">Name</label>
+                        <input type="text" name="name" value="<?= $data['name']?>" class="form-control rounded-3" placeholder="Jake Dru" required>
                     </div>
                     <div class="col mt-2 mb-3">
-                        <label for="form-label" class="fw-bold mb-1">Level</label>
-                        <select name="level" id="" class="form-select rounded-3">
-                            <option value="admin">Admin</option>
-                            <option value="staff">Staff</option>
-                        </select>
+                        <label for="form-label" class="fw-bold mb-1">Image</label>
+                        <input type="file" name="img" value="<?= $data['img']?>" class="form-control rounded-3" required>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="form-label" class="fw-bold mb-1">Image</label>
-                    <input type="file" name="img" class="form-control rounded-3" required>
+                <div class="row">
+                    <div class="col mt-2 mb-3">
+                        <label for="form-label" class="fw-bold mb-1">Adress</label>
+                        <input type="text" name="address" value="<?= $data['address']?>" class="form-control rounded-3" placeholder="Aussie" required>
+                    </div>
+                    <div class="col mt-2 mb-3">
+                        <label for="form-label" class="fw-bold mb-1">Phone No.</label>
+                        <input type="text" name="phoneno" value="<?= $data['phoneno']?>" class="form-control rounded-3" placeholder="0000000" required>
+                    </div>
                 </div>
                 <div class="mt-3 text-center d-flex">
                     <button type="submit" class="btn btn text-center fw-bold shadow" style="width:150px;background-color:#8DCBE6;border-radius:12px">Save</button>&emsp;
-                    <a href="staff.php" class="btn btn text-center text-light fw-bold shadow" style="width:150px;background-color:#ba0000;border-radius:12px">Cancel</a>
+                    <a href="student.php" class="btn btn text-center text-light fw-bold shadow" style="width:150px;background-color:#ba0000;border-radius:12px">Cancel</a>
                 </div>
             </form>
         </div>

@@ -46,6 +46,16 @@ if(!isset($_SESSION['username'])){
             background: #1e1e1e;
             color: #fff;
         }
+        .card{
+            max-width: 350px;
+            max-height: 500px;
+            padding: 30px 30px 30px 30px;
+            background-color: #f2f2f2;
+            border-radius: 50px;
+            box-shadow: 
+                0 5px 9px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.20);
+        }
     </style>
 </head>
 <body style="background-color: #E0F1F1;font-family: 'Poppins', sans-serif;">
@@ -114,34 +124,65 @@ if(!isset($_SESSION['username'])){
     <!-- end sidebar -->
     <!-- content -->
     <div class="col py-3 konten d-flex flex-column">
-    <div class="container mt-4">
-        <h1 class="d-flex"><ion-icon name="documents"></ion-icon>&nbsp;SPP Data</h1>
-        <table class="table table-borderless table-hover table-responsive-sm mt-4 text-center" style="border-radius: 20px;background:#fff;box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <thead>
-                <tr>
-                <th scope="col">No</th>
-                <th scope="col">Year</th>
-                <th scope="col">Nominal</th>
-                <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <?php 
-                $no=1;
-                foreach ($query as $query):?>
-            <tbody>
-                <tr>
-                <td><?php echo $no;$no++; ?></td>
-                <td><?=$query['year']?></td>
-                <td><?=$query['nominal']?></td>
-                <td>
-                    <a href="" class="btn btn-light btn-sm">Update</a>
-                    <a href="" class="btn btn-danger btn-sm">Delete</a>
-                </td>
-            </tr>
-            </tbody>
+    <div class="container">
+    <div class="row">
+    <div class="col">
+        <div class="container mt-4">
+            <h1 class="d-flex"><ion-icon name="book"></ion-icon>&nbsp;Class Data</h1>
+            <table class="table table-borderless table-hover table-responsive-sm mt-4 text-center" style="border-radius: 20px;background:#fff;box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Class</th>
+                        <th scope="col">Majority</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <?php 
+                    $no=1;
+                    foreach ($query as $query):?>
+                <tbody>
+                    <tr>
+                        <td><?php echo $no;$no++; ?></td>
+                        <td><?=$query['year']?></td>
+                        <td><?=$query['nominal']?></td>
+                        <td>
+                        <a href="upd-spp.php?idspp=<?=$query['idspp'];?>" class="btn btn-sm text-white mb-3" style="background-color: #557153;border-radius:10px"><ion-icon name="create" style="font-size: 20px;"></ion-icon></a>
+                    <a href="del-spp.php?idspp=<?=$query['idspp'];?>" class="btn btn-danger mb-3 btn-sm text-white" style="border-radius:10px"><ion-icon name="trash-bin" class="text-center" style="font-size: 20px;"></ion-icon></a>
+                        </td>
+                    </tr>
+                </tbody>
                 <?php endforeach ?>
-        </table>
+            </table>
+        </div>
     </div>
+    <div class="col-5" style="margin-top: 9%;">
+    <div class="card">
+        <div class="card-body">
+            <form action="cre-spp.php" method="post">
+                <div class="d-flex">
+                    <ion-icon name="file-tray-stacked" style="font-size: 20px;"></ion-icon>&nbsp;
+                    <h5 class="fw-bold">New Data</h5>
+                </div>
+                <hr class="divider">
+                <div class="mb-3 mt-3">
+                    <label for="form-label" class="fw-bold mb-1">Year</label>
+                    <input type="text" name="year" class="form-control rounded-3" placeholder="0000" required>
+                </div>
+                <div class="mb-3">
+                    <label for="form-label" class="fw-bold mb-1">Nominal</label>
+                    <input type="text" name="nominal" class="form-control rounded-3" placeholder="Rp 000000000" required>
+                </div>
+                <div class="mb-2 d-flex" style="float: right;">
+                    <a href="cls.php" class="btn btn text-center text-light fw-bold shadow" style="background-color:#ba0000;border-radius:12px">Cancel</a>&emsp;
+                    <button type="submit" class="btn btn text-center fw-bold shadow" style="background-color:#95CD41;border-radius:12px">Save</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     </div>  
     <!-- end content  -->
     </div>

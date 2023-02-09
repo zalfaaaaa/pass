@@ -116,7 +116,7 @@ if(!isset($_SESSION['username'])){
     <div class="col py-3 konten d-flex flex-column">
     <div class="container mt-4">
         <h1 class="d-flex"><ion-icon name="people"></ion-icon>&nbsp;Student Data</h1>
-        <a href="newstudent.php" class="btn btn-primary btn-sm mb-3" style="float:right;">New</a>
+        <a href="newstudent.php" class="btn btn-outline-warning fw-bold btn-sm mb-3" style="float:right;width:10%;border-radius:20px">New</a>
         <table class="table table-borderless table-hover table-responsive mt-4 text-center" style="border-radius: 20px;background:#fff;box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
             <thead>
                 <tr>
@@ -143,7 +143,7 @@ if(!isset($_SESSION['username'])){
                 <td><?=$query['address']?></td>
                 <td><?=$query['phoneno']?></td>
                 <td class="align-items-center">
-                    <a href="upd-stu.php?nisn=<?=$query['nisn'];?>" class="btn btn-sm text-white mb-3" style="background-color: #557153;border-radius:10px"><ion-icon name="create" style="font-size: 20px;"></ion-icon>Update</a>
+                    <a href="upd-stud.php?nisn=<?=$query['nisn'];?>" class="btn btn-sm text-white mb-3" style="background-color: #557153;border-radius:10px"><ion-icon name="create" style="font-size: 20px;"></ion-icon>Update</a>
                     <a href="del-student.php?nisn=<?=$query['nisn'];?>" class="btn btn-danger mb-3 btn-sm text-white" style="border-radius:10px"><ion-icon name="trash-bin" class="text-center" style="font-size: 20px;"></ion-icon>&nbsp;Delete</a>
                 </td>
             </tr>

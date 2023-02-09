@@ -76,7 +76,7 @@ if(!isset($_SESSION['username'])){
                         </li>
                         <hr class="dropdown-divider">
                         <li>
-                            <a href="../logout.php" class="dropdown-item"><ion-icon name="log-out"></ion-icon>&nbsp;Logout</a>
+                            <a href="../logout.php" onclick="return confirm('affh iyh mau logout?')" class="dropdown-item"><ion-icon name="log-out"></ion-icon>&nbsp;Logout</a>
                         </li>
                     </ul>
                     </div>
