@@ -92,7 +92,7 @@ if(!isset($_SESSION['username'])){
                             <a href="enpay.php" class="nav-link align-middle px-0 text-light"><ion-icon name="logo-paypal"></ion-icon>&nbsp;Entry Payment</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link align-middle px-0 text-light"><ion-icon name="file-tray-stacked"></ion-icon>&nbsp;Data</a>
+                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link align-middle px-0 text-light"><ion-icon name="file-tray-stacked"></ion-icon>&nbsp;Data&emsp;<ion-icon name="caret-down"></ion-icon></a>
                             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                                 <li class="w-100">
                                     <a href="spp.php" class="nav-link px-0 text-white"><ion-icon name="documents"></ion-icon>&nbsp;SPP</a>

@@ -3,7 +3,7 @@
 session_start();
 
 include('../connect.php');
-$query = $maru->query('SELECT * FROM staff')->fetchAll();
+$query = $maru->query('SELECT * FROM payment')->fetchAll();
 
 if(!isset($_SESSION['username'])){
     header("location:../login.php");
@@ -24,27 +24,25 @@ if(!isset($_SESSION['username'])){
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>3</title>
     <style>
-        .cardBox{
-            position: relative;
-            width: 100%;
-            padding: 10px;
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            grid-gap: 30px;
+      .col .bg-light{
+            max-width: 1000px;
+            padding: 30px 30px 30px 30px;
+            background-color: #f2f2f2;
+            border-radius: 90px;
+            box-shadow: 
+                3px 3px 3px 3px rgba(0, 0, 0, 0.08), 
+                -3px -3px 3px #fff;
+            margin-left: 40px;
         }
-        .cardBox .card1{
-            position: relative;
-            background:#1d1d1d;
-            color: white;
-            padding: 30px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: space-between;
-            box-shadow: 0 8px 26px rgba(0, 0, 0, 0.09);
-        }
-        .card1:hover{
-            background: #f2f2f2;
-            color: #000;
+        .card {
+            max-width: 1000px;
+            padding: 30px 30px 30px 30px;
+            background-color: #f2f2f2;
+            border-radius: 60px;
+            box-shadow: 
+                0 5px 9px 0 rgba(1, 2, 1, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.20);
+            margin-left: 40px;
         }
     </style>
 </head>
@@ -62,7 +60,7 @@ if(!isset($_SESSION['username'])){
     <!-- sidebar -->
     <div class="container-fluid">
         <div class="row d-flex">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color: #0b0b0b;">
+            <div class="col-auto col-md-2 col-xl-2 px-sm-2 px-0" style="background-color: #0b0b0b;">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 mt-3 float-start">
                     <!-- profile -->
                     <div class="dropdown pb-4">
@@ -114,7 +112,97 @@ if(!isset($_SESSION['username'])){
             </div>
     <!-- end sidebar -->
     <!-- content -->
-    <div class="col py-3 konten d-flex flex-column"></div>  
+    <div class="col py-3 konten d-flex flex-column">
+    <!-- form -->
+    <div class="container">
+      <div class="row">
+         <div class="col bg-light mt-4">
+            <div class="container mt-4">
+            <form action="cre-enpay.php" method="post">
+                <div class="">
+                    <h4 class="fw-bold">Entry Payment</h4>
+                </div>
+                <hr class="divider">
+                <div class="mb-3 mt-2">
+                    <label for="form-label" class="fw-bold mb-1">NISN Student</label>
+                    <input type="text" name="nisn" class="form-control rounded-3" placeholder="00000000" required>
+                </div>
+                <div class="input-group mb-3">									
+                  <label class="input-group-text">										 	
+                        SPP Pay Month	
+                  </label>
+                <select class="form-select" name="paymonth">
+                        <option selected style="color:grey">Please Select</option>											
+                        <option value="january">January</option>
+                        <option value="february">February</option>
+                        <option value="march">March</option>
+                        <option value="april">April</option>
+                        <option value="may">May</option>
+                        <option value="june">June</option>
+                        <option value="july">July</option>
+                        <option value="august">August</option>
+                        <option value="september">September</option>
+                        <option value="october">October</option>
+                        <option value="november">November</option>
+                        <option value="desember">Desember</option>
+                </select>
+                </div>
+                <div class="mb-3">
+                    <label for="form-label" class="fw-bold mb-1">Pay Total</label>
+                    <input type="name" name="payamount" class="form-control rounded-3" placeholder="Rp 00000000" required>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="mb-3 btn btn fw-bold" style="float:right;border-radius:15px;background-color:#95CD41">Submit</button>
+                </div>
+            </form>
+            </div>
+         </div>
+      </div>
+    </div>
+    <!-- end form  -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card mt-5">
+                <div class="card-body">
+                <div class="card-tittle"><h4 class="fw-bold">Payment Data</h4></div>
+                <table class="table table-borderless table-hover table-responsive-sm mt-4 text-center" style="border-radius: 20px;background:#fff;box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.08), 
+                -3px -3px 3px #fff;;">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Staff</th>
+                        <th scope="col">Nisn Student</th>
+                        <th scope="col">Student Name</th>
+                        <th scope="col">Pay Total</th>
+                        <th scope="col">Pay Date</th>
+                    </tr>
+                </thead>
+                <?php 
+                    $no=1;
+                    foreach ($query as $query):?>
+                <tbody>
+                    <tr>
+                        <td><?php echo $no;$no++; ?></td>
+                        <td><?=$query['staff']?></td>
+                        <td><?=$query['nisn']?></td>
+                        <td><?=$query['name']?></td>
+                        <td><?=$query['payamount']?></td>
+                        <td><?=$query['paydate']?></td>
+                        <td>
+                        <a href="upd-spp.php?idspp=<?=$query['idspp'];?>" class="btn btn-sm text-white mb-3" style="background-color: #557153;border-radius:10px"><ion-icon name="create" style="font-size: 20px;"></ion-icon></a>
+                    <a href="del-spp.php?idspp=<?=$query['idspp'];?>" class="btn btn-danger mb-3 btn-sm text-white" style="border-radius:10px"><ion-icon name="trash-bin" class="text-center" style="font-size: 20px;"></ion-icon></a>
+                        </td>
+                    </tr>
+                </tbody>
+                <?php endforeach ?>
+                </table>
+                </div>
+                </div>
+                </div>
+             </div>  
+        </div>
+    </div>
     <!-- end content  -->
     </div>
 </div>
