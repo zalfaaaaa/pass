@@ -4,7 +4,7 @@ session_start();
 
 include('../connect.php');
 
-$nm = $_POST['name'];
+$nm = $_POST['namest'];
 $usn = $_POST['username'];
 $pw = $_POST['password'];
 $lvl = $_POST['level'];

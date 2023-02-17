@@ -3,7 +3,6 @@
 session_start();
 
 include('../connect.php');
-$query = $maru->query('SELECT * FROM payment')->fetchAll();
 
 if(!isset($_SESSION['username'])){
     header("location:../login.php");
@@ -119,33 +118,73 @@ if(!isset($_SESSION['username'])){
          <div class="col bg-light mt-4">
             <div class="container mt-4">
             <form action="cre-enpay.php" method="post">
-                <div class="">
+            <div class="row">
+                <div class="col">
                     <h4 class="fw-bold">Entry Payment</h4>
                 </div>
+                <div class="col text-end">
+                    <span class="fw-bold">Date : </span>&nbsp;<input type="text" name="paydate" value="<?php echo date('d/m/y')?>" style="width:100px;float:right" class="form-control rounded-3" readonly>
+                </div>
+            </div>
+                <!-- <div class="">
+                    
+                </div> -->
                 <hr class="divider">
                 <div class="mb-3 mt-2">
-                    <label for="form-label" class="fw-bold mb-1">NISN Student</label>
-                    <input type="text" name="nisn" class="form-control rounded-3" placeholder="00000000" required>
+                <label for="form-label" class="fw-bold mb-1">NISN</label>
+                        <select name="nisn" class="form-select required">
+                            <?php $query = $maru->query('SELECT * FROM student')->fetchAll();
+                            foreach ($query as $query) :?>
+                                <option value="<?php echo $query['nisn']?>"><?php echo $query['nisn']?></option>
+                            <?php endforeach ?>
+                        </select>
                 </div>
-                <div class="input-group mb-3">									
-                  <label class="input-group-text">										 	
-                        SPP Pay Month	
-                  </label>
-                <select class="form-select" name="paymonth">
-                        <option selected style="color:grey">Please Select</option>											
-                        <option value="january">January</option>
-                        <option value="february">February</option>
-                        <option value="march">March</option>
-                        <option value="april">April</option>
-                        <option value="may">May</option>
-                        <option value="june">June</option>
-                        <option value="july">July</option>
-                        <option value="august">August</option>
-                        <option value="september">September</option>
-                        <option value="october">October</option>
-                        <option value="november">November</option>
-                        <option value="desember">Desember</option>
-                </select>
+                <div class="row">
+                    <div class="col mt-2 mb-3">
+                        <label for="form-label" class="fw-bold mb-1">Id SPP</label>
+                        <select name="idspp" class="form-select" required>
+                            <?php $query = $maru->query('SELECT * FROM spp')->fetchAll();
+                            foreach ($query as $query) :?>
+                                <option value="<?php echo $query['idspp']?>"><?php echo $query['idspp']?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                    <div class="col mt-2 mb-3">
+                        <label for="form-label" class="fw-bold mb-1">Id Staff</label>
+                        <select name="idstaff" class="form-select" required>
+                            <?php $query = $maru->query('SELECT * FROM staff')->fetchAll();
+                            foreach ($query as $query) :?>
+                                <option value="<?php echo $query['idstaff']?>"><?php echo $query['idstaff']?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col input-group mb-3 mt-3">									
+                    <label class="input-group-text">										 	
+                            SPP Pay Month	
+                    </label>
+                    <select class="form-select" name="paymonth">
+                        <?php
+                            $o = array ("", "January", "February", "March", "April", "May" ,"June", "July", "August", "September", "October", "November", "December"); 
+                            for ($z=1;$z<=12;$z++){
+                                echo "<option selected> </option>";
+                                echo "<option value=".$z.">".$o[$z]."</option>";
+                            }
+                        ?>
+                    </select>
+                    </div>
+                    <div class="col input-group mb-3 mt-3">
+                        <label class="input-group-text">Year</label>
+                        <select name="year" class="form-select" size="1">
+                            <?php
+                                for ($i=1999;$i<=2023;$i++){
+                                    echo "<option selected> </option>";
+                                    echo "<option value=".$i.">".$i."</option>";
+                                }
+                            ?>
+                        </select>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="form-label" class="fw-bold mb-1">Pay Total</label>
@@ -176,23 +215,25 @@ if(!isset($_SESSION['username'])){
                         <th scope="col">Student Name</th>
                         <th scope="col">Pay Total</th>
                         <th scope="col">Pay Date</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <?php 
+                    $query = $maru->query('SELECT staff.namest, payment.nisn, student.name, payment.payamount, payment.paydate FROM ((payment INNER JOIN staff ON payment.idstaff = staff.idstaff) INNER JOIN student ON payment.nisn = student.nisn);')->fetchAll();
                     $no=1;
                     foreach ($query as $query):?>
                 <tbody>
                     <tr>
                         <td><?php echo $no;$no++; ?></td>
-                        <td><?=$query['staff']?></td>
+                        <td><?=$query['namest']?></td>
                         <td><?=$query['nisn']?></td>
                         <td><?=$query['name']?></td>
                         <td><?=$query['payamount']?></td>
                         <td><?=$query['paydate']?></td>
-                        <td>
-                        <a href="upd-spp.php?idspp=<?=$query['idspp'];?>" class="btn btn-sm text-white mb-3" style="background-color: #557153;border-radius:10px"><ion-icon name="create" style="font-size: 20px;"></ion-icon></a>
-                    <a href="del-spp.php?idspp=<?=$query['idspp'];?>" class="btn btn-danger mb-3 btn-sm text-white" style="border-radius:10px"><ion-icon name="trash-bin" class="text-center" style="font-size: 20px;"></ion-icon></a>
-                        </td>
+                        <!-- <td>
+                            <a href="upd-spp.php?idspp=<?=$query['idpay'];?>" class="btn btn-sm text-white mb-3" style="background-color: #557153;border-radius:10px"><ion-icon name="create" style="font-size: 20px;"></ion-icon></a>
+                            <a href="del-spp.php?idspp=<?=$query['idpay'];?>" class="btn btn-danger mb-3 btn-sm text-white" style="border-radius:10px"><ion-icon name="trash-bin" class="text-center" style="font-size: 20px;"></ion-icon></a>
+                        </td> -->
                     </tr>
                 </tbody>
                 <?php endforeach ?>

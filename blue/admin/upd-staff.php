@@ -35,8 +35,8 @@ if(!isset($_SESSION['username'])){
             background-color: #fff;
             border-radius: 15px;
             box-shadow: 
-                0 5px 9px 0 rgba(0, 0, 0, 0.2), 
-                0 6px 20px 0 rgba(0, 0, 0, 0.20);
+                3px 3px 3px 3px rgba(0, 0, 0, 0.08), 
+                3px 3px 3px 3px rgba(0, 0, 0, 0.08);
         }
     </style>
 </head>
@@ -59,7 +59,7 @@ if(!isset($_SESSION['username'])){
                 <div class="row">
                     <div class="col mt-2 mb-3">
                         <label for="form-label" class="fw-bold mb-1">Name</label>
-                        <input type="text" name="name" class="form-control rounded-3" placeholder="Mark Lee" required value="<?=$data['name']?>">
+                        <input type="text" name="namest" class="form-control rounded-3" placeholder="Mark Lee" required value="<?=$data['namest']?>">
                     </div>
                     <div class="col mt-2 mb-3">
                         <label for="form-label" class="fw-bold mb-1">Username</label>

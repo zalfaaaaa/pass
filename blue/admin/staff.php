@@ -40,7 +40,9 @@ if(!isset($_SESSION['username'])){
             border-radius: 20px;
             display: flex;
             justify-content: space-between;
-            box-shadow: 0 8px 26px rgba(0, 0, 0, 0.09);
+            box-shadow: 
+                3px 3px 3px 3px rgba(0, 0, 0, 0.08),
+                3px 3px 3px 3px rgba(0, 0, 0, 0.08);
         }
         .cardBox .card1 :hover{
             background: #1e1e1e;
@@ -137,10 +139,10 @@ if(!isset($_SESSION['username'])){
             <tbody>
                 <tr>
                 <td><?php echo $no;$no++; ?></td>
-                <td><?=$query['name']?></td>
+                <td><?=$query['namest']?></td>
                 <td><?=$query['username']?></td>
                 <td><?=$query['password']?></td>
-                <td><img src="img/<?=$query['img']; ?>" width="100" height="100" /></td>
+                <td><img src="img/<?=$query['img']; ?>" width="100" height="100" style="border-radius: 10px;" /></td>
                 <td><?=$query['level']?></td>
                 <td class="align-items-center">
                     <a href="upd-staff.php?idstaff=<?=$query['idstaff'];?>" class="btn btn-sm text-white mb-3" style="background-color: #557153;border-radius:10px"><ion-icon name="create" style="font-size: 20px;"></ion-icon>&nbsp;Update</a>

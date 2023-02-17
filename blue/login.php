@@ -33,8 +33,8 @@ if(isset($_SESSION['username'])){
             background-color: #fff;
             border-radius: 50px;
             box-shadow: 
-                0 5px 9px 0 rgba(0, 0, 0, 0.2), 
-                0 6px 20px 0 rgba(0, 0, 0, 0.20);
+                3px 3px 3px 3px rgba(0, 0, 0, 0.08), 
+                -3px -3px 3px #E0F1F1;
         }
     </style>
 </head>
@@ -71,7 +71,7 @@ if(isset($_SESSION['username'])){
                     <input type="password" name="password" class="form-control rounded-3" placeholder="******" required>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn fw-bold" style="float:right;border-radius:15px;width:50%;background-color:#95CD41">Login</button>
+                    <button type="submit" class="btn btn fw-bold" style="float:right;border-radius:15px;width:50%;background-color:#95CD41;box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.08), -3px -3px 3px #fff;">Login</button>
                 </div>
             </form>
         </div>

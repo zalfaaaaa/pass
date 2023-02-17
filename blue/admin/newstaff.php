@@ -42,7 +42,7 @@ if(!isset($_SESSION['username'])){
     <div class="col">
       <div class="card">
         <div class="card-body">
-            <form action="cre-staff.php" method="post">
+            <form action="cre-staff.php" method="post" enctype="multipart/form-data">
                 <div class="d-flex">
                     <h3 class="fw-bold"><ion-icon name="people" class="text-center"></ion-icon>&nbsp;Staff Data</h3>
                 </div>
@@ -51,7 +51,7 @@ if(!isset($_SESSION['username'])){
                 <div class="row">
                     <div class="col mt-2 mb-3">
                         <label for="form-label" class="fw-bold mb-1">Name</label>
-                        <input type="text" name="name" class="form-control rounded-3" placeholder="Mark Lee" required>
+                        <input type="text" name="namest" class="form-control rounded-3" placeholder="Mark Lee" required>
                     </div>
                     <div class="col mt-2 mb-3">
                         <label for="form-label" class="fw-bold mb-1">Username</label>

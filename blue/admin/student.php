@@ -139,7 +139,7 @@ if(!isset($_SESSION['username'])){
                 <td><?=$query['nisn']?></td>
                 <td><?=$query['nis']?></td>
                 <td><?=$query['name']?></td>
-                <td><img src="img/<?=$query['img']; ?>" width="100" height="100" /></td>
+                <td><img src="img/<?=$query['img']; ?>" width="100" height="100" style="border-radius: 10px;" /></td>
                 <td><?=$query['address']?></td>
                 <td><?=$query['phoneno']?></td>
                 <td class="align-items-center">

@@ -167,7 +167,14 @@ if(!isset($_SESSION['username'])){
                 <hr class="divider">
                 <div class="mb-3 mt-3">
                     <label for="form-label" class="fw-bold mb-1">Year</label>
-                    <input type="text" name="year" class="form-control rounded-3" placeholder="0000" required>
+                    <select name="year" class="form-select" size="1">
+                        <?php
+                            for ($i=1999;$i<=2023;$i++){
+                                echo "<option selected> </option>";
+                                echo "<option value=".$i.">".$i."</option>";
+                            }
+                        ?>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="form-label" class="fw-bold mb-1">Nominal</label>

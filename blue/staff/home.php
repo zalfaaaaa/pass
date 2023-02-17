@@ -97,26 +97,7 @@ if(!isset($_SESSION['username'])){
             </div>
     <!-- end sidebar -->
     <!-- content -->
-    <div class="col py-3 konten d-flex flex-column">
-        <div class="cardBox">
-            <div class="card1">
-                <div class="">
-                    <div class="numbers">History</div>
-                </div>
-                <div class="iconbox">
-                    <ion-icon name="home"></ion-icon>
-                </div>
-            </div>
-            <div class="card1">
-                <div class="">
-                    <div class="numbers">Entry Payment</div>
-                </div>
-                <div class="iconbox">
-                    <ion-icon name="logo-paypal"></ion-icon>
-                </div>
-            </div>
-        </div>
-    </div>  
+    <div class="col py-3 konten d-flex flex-column"></div>  
     <!-- end content  -->
     </div>
 </div>

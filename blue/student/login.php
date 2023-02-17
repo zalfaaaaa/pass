@@ -28,8 +28,8 @@ if(isset($_SESSION['nisn'])){
             background-color: #fff;
             border-radius: 30px;
             box-shadow: 
-                0 5px 9px 0 rgba(0, 0, 0, 0.2), 
-                0 6px 20px 0 rgba(0, 0, 0, 0.20);
+                3px 3px 3px 3px rgba(0, 0, 0, 0.08), 
+                -3px -3px 3px #E0F1F1;
         }
     </style>
 </head>

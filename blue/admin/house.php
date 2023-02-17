@@ -15,6 +15,7 @@ if(!isset($_SESSION['username'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- bootstrap csss -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- icon  -->
@@ -34,8 +35,8 @@ if(!isset($_SESSION['username'])){
         }
         .cardBox .card1{
             position: relative;
-            background:#1d1d1d;
-            color: white;
+            background:#fff;
+            color: black;
             padding: 30px;
             border-radius: 20px;
             display: flex;
@@ -43,9 +44,28 @@ if(!isset($_SESSION['username'])){
             box-shadow: 0 8px 26px rgba(0, 0, 0, 0.09);
         }
         .card1:hover{
-            background: #f2f2f2;
-            color: #000;
+            background: #1d1d1d;
+            color: #fff;
         }
+        /* responsive */
+        @media (max-width: 797){
+            .cardBox{
+                display: flex;
+                justify-content: space-evenly;
+                flex-direction: column;
+            }
+        }
+        @media(max-width: 309px){
+            .cardBox{
+                position: relative;
+                width: 100%;
+                padding: 10px;
+                grid-gap: 30px;
+                justify-content: space-evenly;
+                flex-direction: column;
+            }
+        }
+
     </style>
 </head>
 <body style="background-color: #E0F1F1;font-family: 'Poppins', sans-serif;">

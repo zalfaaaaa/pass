@@ -2,6 +2,11 @@
 
 session_start();
 
+include('../connect.php');
+
+if(!isset($_SESSION['username'])){
+    header("location:../login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +25,7 @@ session_start();
     <style>
         .card{
             max-width: 350px;
-            max-height: 500px;
+            max-height: 600px;
             padding: 30px 30px 30px 30px;
             background-color: #fff;
             border-radius: 15px;
@@ -31,7 +36,7 @@ session_start();
     </style>
 </head>
 <body style="background-color: #E0F1F1;font-family: 'Poppins', sans-serif;">
-<div class="container" style="margin-top: 80px;">
+<div class="container mt-4">
   <div class="row">
     <div class="col">
       <!-- Column -->
@@ -63,6 +68,26 @@ session_start();
                     <div class="col mt-2 mb-3">
                         <label for="form-label" class="fw-bold mb-1">Image</label>
                         <input type="file" name="img" class="form-control rounded-3" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2 mb-3">
+                        <label for="form-label" class="fw-bold mb-1">Id SPP</label>
+                        <select name="idspp" class="form-select">
+                            <?php $query = $maru->query('SELECT * FROM spp')->fetchAll();
+                            foreach ($query as $query) :?>
+                                <option value="<?php echo $query['idspp']?>"><?php echo $query['idspp']?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                    <div class="col mt-2 mb-3">
+                    <label for="form-label" class="fw-bold mb-1">Id Class</label>
+                        <select name="idcls" class="form-select">
+                            <?php $query = $maru->query('SELECT * FROM class')->fetchAll(); 
+                            foreach ($query as $query) :?>
+                                <option value="<?php echo $query['idcls']?>"><?php echo $query['idcls']?></option>
+                            <?php endforeach ?>
+                        </select>
                     </div>
                 </div>
                 <div class="row">

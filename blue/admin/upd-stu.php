@@ -77,6 +77,26 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="row">
                     <div class="col mt-2 mb-3">
+                        <label for="form-label" class="fw-bold mb-1">Id SPP</label>
+                        <select name="idspp" class="form-select">
+                            <?php $query = $maru->query('SELECT * FROM spp')->fetchAll();
+                            foreach ($query as $query) :?>
+                                <option value="<?php echo $query['idspp']?>"><?php echo $query['idspp']?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                    <div class="col mt-2 mb-3">
+                    <label for="form-label" class="fw-bold mb-1">Id Class</label>
+                        <select name="idcls" class="form-select">
+                            <?php $query = $maru->query('SELECT * FROM class')->fetchAll(); 
+                            foreach ($query as $query) :?>
+                                <option value="<?php echo $query['idcls']?>"><?php echo $query['idcls']?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2 mb-3">
                         <label for="form-label" class="fw-bold mb-1">Adress</label>
                         <input type="text" name="address" value="<?=$data['address']?>" class="form-control rounded-3" placeholder="Aussie" required>
                     </div>
