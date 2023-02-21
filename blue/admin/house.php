@@ -24,49 +24,6 @@ if(!isset($_SESSION['username'])){
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>3</title>
-    <style>
-        .cardBox{
-            position: relative;
-            width: 100%;
-            padding: 10px;
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            grid-gap: 30px;
-        }
-        .cardBox .card1{
-            position: relative;
-            background:#fff;
-            color: black;
-            padding: 30px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: space-between;
-            box-shadow: 0 8px 26px rgba(0, 0, 0, 0.09);
-        }
-        .card1:hover{
-            background: #1d1d1d;
-            color: #fff;
-        }
-        /* responsive */
-        @media (max-width: 797){
-            .cardBox{
-                display: flex;
-                justify-content: space-evenly;
-                flex-direction: column;
-            }
-        }
-        @media(max-width: 309px){
-            .cardBox{
-                position: relative;
-                width: 100%;
-                padding: 10px;
-                grid-gap: 30px;
-                justify-content: space-evenly;
-                flex-direction: column;
-            }
-        }
-
-    </style>
 </head>
 <body style="background-color: #E0F1F1;font-family: 'Poppins', sans-serif;">
     <!-- navbar -->
@@ -134,37 +91,7 @@ if(!isset($_SESSION['username'])){
             </div>
     <!-- end sidebar -->
     <!-- content -->
-    <div class="col py-3 konten d-flex flex-column">
-        <div class="cardBox">
-            <div class="card1">
-                <div class="">
-                    <div class="numbers">History</div>
-                    <div class="cardname"></div>
-                </div>
-                <div class="iconbox">
-                    <ion-icon name="home"></ion-icon>
-                </div>
-            </div>
-            <div class="card1">
-                <div class="">
-                    <div class="numbers">Entry Payment</div>
-                    <div class="cardname">Pembayaran</div>
-                </div>
-                <div class="iconbox">
-                    <ion-icon name="logo-paypal"></ion-icon>
-                </div>
-            </div>
-            <div class="card1">
-                <div class="">
-                    <div class="numbers">Data</div>
-                    <div class="cardname">student, staff, spp, class</div>
-                </div>
-                <div class="iconbox">
-                    <ion-icon name="file-tray-stacked"></ion-icon>
-                </div>
-            </div>
-        </div>
-    </div>  
+    <div class="col py-3 konten d-flex flex-column"></div>  
     <!-- end content  -->
     </div>
 </div>

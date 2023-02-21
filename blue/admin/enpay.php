@@ -13,18 +13,20 @@ if(!isset($_SESSION['username'])){
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- font [sans serif display] -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
     <!-- bootstrap csss -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- icon  -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <!-- font -->
+    <!-- font [poppins] -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <title>3</title>
+    <title>Payment</title>
     <style>
       .col .bg-light{
-            max-width: 1000px;
+            max-width: 1000px; 
             padding: 30px 30px 30px 30px;
             background-color: #f2f2f2;
             border-radius: 90px;
@@ -42,6 +44,12 @@ if(!isset($_SESSION['username'])){
                 0 5px 9px 0 rgba(1, 2, 1, 0.2), 
                 0 6px 20px 0 rgba(0, 0, 0, 0.20);
             margin-left: 40px;
+        }
+        .hover-1{
+            color:#0b0b0b;
+        }
+        .hover-1:hover {
+            color: #3A98B9;
         }
     </style>
 </head>
@@ -135,6 +143,7 @@ if(!isset($_SESSION['username'])){
                         <select name="nisn" class="form-select required">
                             <?php $query = $maru->query('SELECT * FROM student')->fetchAll();
                             foreach ($query as $query) :?>
+                            <option selected></option>
                                 <option value="<?php echo $query['nisn']?>"><?php echo $query['nisn']?></option>
                             <?php endforeach ?>
                         </select>
@@ -145,6 +154,7 @@ if(!isset($_SESSION['username'])){
                         <select name="idspp" class="form-select" required>
                             <?php $query = $maru->query('SELECT * FROM spp')->fetchAll();
                             foreach ($query as $query) :?>
+                            <option selected></option>
                                 <option value="<?php echo $query['idspp']?>"><?php echo $query['idspp']?></option>
                             <?php endforeach ?>
                         </select>
@@ -154,6 +164,7 @@ if(!isset($_SESSION['username'])){
                         <select name="idstaff" class="form-select" required>
                             <?php $query = $maru->query('SELECT * FROM staff')->fetchAll();
                             foreach ($query as $query) :?>
+                                <option selected></option>
                                 <option value="<?php echo $query['idstaff']?>"><?php echo $query['idstaff']?></option>
                             <?php endforeach ?>
                         </select>
@@ -176,9 +187,9 @@ if(!isset($_SESSION['username'])){
                     </div>
                     <div class="col input-group mb-3 mt-3">
                         <label class="input-group-text">Year</label>
-                        <select name="year" class="form-select" size="1">
+                        <select name="payyear" class="form-select" size="1">
                             <?php
-                                for ($i=1999;$i<=2023;$i++){
+                                for ($i=1999;$i<=2025;$i++){
                                     echo "<option selected> </option>";
                                     echo "<option value=".$i.">".$i."</option>";
                                 }
@@ -208,7 +219,7 @@ if(!isset($_SESSION['username'])){
                 <table class="table table-borderless table-hover table-responsive-sm mt-4 text-center" style="border-radius: 20px;background:#fff;box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.08), 
                 -3px -3px 3px #fff;;">
                 <thead>
-                    <tr>
+                    <tr style="font-family: 'DM Serif Display', serif;" class="fw-bold">
                         <th scope="col">No</th>
                         <th scope="col">Staff</th>
                         <th scope="col">Nisn Student</th>
@@ -225,9 +236,9 @@ if(!isset($_SESSION['username'])){
                 <tbody>
                     <tr>
                         <td><?php echo $no;$no++; ?></td>
-                        <td><?=$query['namest']?></td>
-                        <td><?=$query['nisn']?></td>
-                        <td><?=$query['name']?></td>
+                        <td><a href="staff.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$query['namest']?></a></td>
+                        <td><a href="student.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$query['nisn']?></a></td>
+                        <td><a href="student.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$query['name']?></a></td>
                         <td><?=$query['payamount']?></td>
                         <td><?=$query['paydate']?></td>
                         <!-- <td>
