@@ -23,30 +23,6 @@ if(!isset($_SESSION['nisn'])){
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>3</title>
-    <style>
-        .cardBox{
-            position: relative;
-            width: 100%;
-            padding: 10px;
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            grid-gap: 30px;
-        }
-        .cardBox .card1{
-            position: relative;
-            background:#1d1d1d;
-            color: white;
-            padding: 30px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: space-between;
-            box-shadow: 0 8px 26px rgba(0, 0, 0, 0.09);
-        }
-        .card1:hover{
-            background: #f2f2f2;
-            color: #000;
-        }
-    </style>
 </head>
 <body style="background-color: #E0F1F1;font-family: 'Poppins', sans-serif;">
     <!-- navbar -->
@@ -94,17 +70,7 @@ if(!isset($_SESSION['nisn'])){
     <!-- end sidebar -->
     <!-- content -->
     <div class="col py-3 konten d-flex flex-column">
-        <div class="cardBox">
-            <div class="card1">
-                <div class="">
-                    <div class="numbers">History</div>
-                    <div class="cardname"></div>
-                </div>
-                <div class="iconbox">
-                    <ion-icon name="home"></ion-icon>
-                </div>
-            </div>
-        </div>
+        <h1 class="text-center mt-5 fw-bold" style="font-family: monaco;">Hello! <?= $_SESSION['name'];?></h1>
     </div>  
     <!-- end content  -->
     </div>

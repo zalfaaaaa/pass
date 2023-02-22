@@ -150,12 +150,8 @@ if(!isset($_SESSION['username'])){
                         <td><?=$query['year']?></td>
                         <td><?=$query['nominal']?></td>
                         <td>
-
-                        <a href="spp.php?idspp=<?=$query['idspp'];?>" class="btn btn-sm text-white mb-3" style="background-color: #557153;border-radius:10px"><ion-icon name="create" style="font-size: 20px;"></ion-icon></a>
-
-
-                        
-                    <a href="del-spp.php?idspp=<?=$query['idspp'];?>" class="btn btn-danger mb-3 btn-sm text-white" style="border-radius:10px"><ion-icon name="trash-bin" class="text-center" style="font-size: 20px;"></ion-icon></a>
+                            <a href="upd-spp.php?idspp=<?=$query['idspp'];?>" class="btn btn-sm text-white mb-3" style="background-color: #557153;border-radius:10px"><ion-icon name="create" style="font-size: 20px;"></ion-icon></a>
+                            <a href="del-spp.php?idspp=<?=$query['idspp'];?>" class="btn btn-danger mb-3 btn-sm text-white" style="border-radius:10px"><ion-icon name="trash-bin" class="text-center" style="font-size: 20px;"></ion-icon></a>
                         </td>
                     </tr>
                 </tbody>
@@ -166,16 +162,10 @@ if(!isset($_SESSION['username'])){
     <div class="col-5" style="margin-top: 9%;">
     <div class="card">
         <div class="card-body">
-            <form method="post" <?php
-                    if (isset($_GET['idspp'])) {?>
-                        action="upg-spp.php"
-                <?php 
-                    } else { ?>
-                        action="cre-spp.php"|
-                <?php } ?>>
+            <form method="post" action="cre-spp.php">
                 <div class="d-flex">
                     <ion-icon name="file-tray-stacked" style="font-size: 20px;"></ion-icon>&nbsp;
-                    <h5 class="fw-bold">New Data</h5>
+                    <h5 class="fw-bold">New Data</h5>  
                 </div>
                 <hr class="divider">
                 <div class="mb-3 mt-3">
@@ -191,22 +181,11 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="mb-3">
                     <label for="form-label" class="fw-bold mb-1">Nominal</label>
-                    <input type="text" name="nominal" class="form-control rounded-3" placeholder="Rp 000000000" required 
-                    <?php
-                        if (isset($_GET['idspp'])) {?>
-                           value="<?= $data['nominal'];?>"
-                     <?php } ?>>
+                    <input type="text" name="nominal" class="form-control rounded-3" placeholder="Rp 000000000" required>
                 </div>
                 <div class="mb-2 d-flex" style="float: right;">
                     <a href="spp.php" class="btn btn text-center text-light fw-bold shadow" style="background-color:#ba0000;border-radius:12px">Cancel</a>&emsp;
-                    <?php
-                    
-                    if (isset($_GET['idspp'])) {?>
-                        <button type="submit" class="btn btn text-center fw-bold shadow" style="background-color:#95CD41;border-radius:12px">Update</button>
-
-                   <?php } else { ?>
                     <button type="submit" class="btn btn text-center fw-bold shadow" style="background-color:#95CD41;border-radius:12px">Save</button>
-                    <?php } ?>
                 </div>
             </form>
         </div>
