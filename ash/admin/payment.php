@@ -11,10 +11,10 @@ if(!isset($_SESSION['username'])){
   }
 }
 
-
+$nisn = "";
 if(isset($_GET['nisn'])){
   $nisn = $_GET['nisn'];
-  $query = $maru->query("SELECT idspp FROM student where nisn='$nisn'")->fetch();
+  $query = $maru->query("SELECT * FROM student where nisn='$nisn'")->fetch();
 }
 ?>
 <!DOCTYPE html>
@@ -223,17 +223,18 @@ if(isset($_GET['nisn'])){
                 <hr class="divider">
                 <div class="mb-3 mt-2">
                 <label for="form-label" class="fw-bold mb-1">NISN</label>
-                        <select name="nisn" id="nisn" class="form-select required" onChange="getNisnSiswa()">
-                            <?php $query = $maru->query('SELECT * FROM student')->fetchAll();
-                            foreach ($query as $query) :?>
-                                <option value="<?php echo $query['nisn']?>" <?php $query['nisn'] === $_GET['nisn'] ? 'selected' : '' ?>><?php echo $query['nisn']?></option>
-                            <?php endforeach ?>
+                        <select name="nisn" id="nisn" class="form-select" required onChange="getNisnSiswa()">
+                        <option value="">Pilih Kelas</option>
+                          <?php $datas = $maru->query('SELECT * FROM student')->fetchAll();
+                            foreach ($datas as $data) :?>
+                                <option value="<?php echo $data['nisn']?>" <?=  $data['nisn'] === $nisn ? 'selected' : '' ?>><?php echo $data['nisn']?></option>
+                          <?php endforeach ?>
                         </select>
                 </div>
                 <div class="row">
                     <div class="col mt-2 mb-3">
                         <label for="form-label" class="fw-bold mb-1">Id SPP</label>
-                        <input type="text" value="<?= $query['idspp'] ?>" readonly>
+                        <input type="text" name="idspp" class="form-control rounded-3" value="<?= $nisn !== '' ? $query['idspp'] : '' ?>" readonly>
                     </div>
                     <div class="col mt-2 mb-3">
                         <label for="form-label" class="fw-bold mb-1">Id Staff</label>
