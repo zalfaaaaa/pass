@@ -10,6 +10,12 @@ if(!isset($_SESSION['username'])){
     header("location:login.php");
   }
 }
+
+
+if(isset($_GET['nisn'])){
+  $nisn = $_GET['nisn'];
+  $query = $maru->query("SELECT idspp FROM student where nisn='$nisn'")->fetch();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -217,24 +223,17 @@ if(!isset($_SESSION['username'])){
                 <hr class="divider">
                 <div class="mb-3 mt-2">
                 <label for="form-label" class="fw-bold mb-1">NISN</label>
-                        <select name="nisn" class="form-select required">
+                        <select name="nisn" id="nisn" class="form-select required" onChange="getNisnSiswa()">
                             <?php $query = $maru->query('SELECT * FROM student')->fetchAll();
                             foreach ($query as $query) :?>
-                            <option selected></option>
-                                <option value="<?php echo $query['nisn']?>"><?php echo $query['nisn']?></option>
+                                <option value="<?php echo $query['nisn']?>" <?php $query['nisn'] === $_GET['nisn'] ? 'selected' : '' ?>><?php echo $query['nisn']?></option>
                             <?php endforeach ?>
                         </select>
                 </div>
                 <div class="row">
                     <div class="col mt-2 mb-3">
                         <label for="form-label" class="fw-bold mb-1">Id SPP</label>
-                        <select name="idspp" class="form-select" required>
-                            <?php $query = $maru->query('SELECT * FROM spp')->fetchAll();
-                            foreach ($query as $query) :?>
-                            <option selected></option>
-                                <option value="<?php echo $query['idspp']?>"><?php echo $query['idspp']?></option>
-                            <?php endforeach ?>
-                        </select>
+                        <input type="text" value="<?= $query['idspp'] ?>" readonly>
                     </div>
                     <div class="col mt-2 mb-3">
                         <label for="form-label" class="fw-bold mb-1">Id Staff</label>
@@ -348,6 +347,13 @@ if(!isset($_SESSION['username'])){
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginLeft = "0";
     document.getElementById("en").style.marginLeft = "0";
+  }
+
+  function getNisnSiswa(){
+    var nisn = document.getElementById("nisn");
+    var dataNisn = nisn.value;
+
+   window.location = 'http://localhost/ash/admin/payment.php?nisn=' + dataNisn
   }
 </script>
 </body>
