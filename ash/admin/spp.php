@@ -230,7 +230,6 @@ if(!isset($_SESSION['username'])){
                       <select name="year" class="form-select" size="1">
                         <?php
                             for ($i=1999;$i<=2023;$i++){
-                                echo "<option selected> </option>";
                                 echo "<option value=".$i.">".$i."</option>";
                             }
                         ?>

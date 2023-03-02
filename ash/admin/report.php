@@ -201,7 +201,9 @@ if(!isset($_SESSION['username'])){
                         <th scope="col">NISN</th>
                         <th scope="col">NAME</th>
                         <th scope="col">TOTAL</th>
+                        <th scope="col">DATE</th>
                         <th scope="col">YEAR</th>
+                        <th scope="col">MONTH</th>
                         <th scope="col">ACTION</th>
                     </tr>
                 </thead>
@@ -217,11 +219,13 @@ if(!isset($_SESSION['username'])){
                 <tbody>
                     <tr>
                         <td><?php echo $no;$no++; ?></td>
-                        <td><a href="staff.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$datas['namest']?></a></td>
-                        <td><a href="student.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$datas['nisn']?></a></td>
-                        <td><a href="student.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$datas['name']?></a></td>
+                        <td><?=$datas['namest']?></td>
+                        <td><?=$datas['nisn']?></td>
+                        <td><?=$datas['name']?></td>
                         <td><?=$datas['payamount']?></td>
                         <td><?=$datas['paydate']?></td>
+                        <td><?=$datas['payyear']?></td>
+                        <td><?=$datas['paymonth']?></td>
                         <td>
                             <a href="print.php?idpay=<?=$datas['idpay'];?>" class="btn btn-dark mb-3 btn-sm text-white fw-bold"><ion-icon name="print" class="text-center" style="font-size: 20px;border-radius:50%"></ion-icon></a>
                         </td>

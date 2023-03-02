@@ -95,45 +95,12 @@
             margin-bottom: 20px;
         }
 
-        .footer {
-            width: 100%;
-            clear: both;
-            color: #999;
-            padding: 20px;
-        }
-        .footer a {
-            color: #999;
-        }
-        .footer p, .footer a, .footer unsubscribe, .footer td {
-            font-size: 12px;
-        }
 
-        /* -------------------------------------
-            TYPOGRAPHY
-        ------------------------------------- */
         h1, h2, h3 {
             color: #000;
             margin: 40px 0 0;
             line-height: 1.2;
             font-weight: 400;
-        }
-
-        h1 {
-            font-size: 32px;
-            font-weight: 500;
-        }
-
-        h2 {
-            font-size: 24px;
-        }
-
-        h3 {
-            font-size: 18px;
-        }
-
-        h4 {
-            font-size: 14px;
-            font-weight: 600;
         }
 
         p, ul, ol {
@@ -145,32 +112,11 @@
             list-style-position: inside;
         }
 
-        /* -------------------------------------
-            LINKS & BUTTONS
-        ------------------------------------- */
         a {
             color: #1ab394;
             text-decoration: underline;
         }
 
-        .btn-primary {
-            text-decoration: none;
-            color: #FFF;
-            background-color: #1ab394;
-            border: solid #1ab394;
-            border-width: 5px 10px;
-            line-height: 2;
-            font-weight: bold;
-            text-align: center;
-            cursor: pointer;
-            display: inline-block;
-            border-radius: 5px;
-            text-transform: capitalize;
-        }
-
-        /* -------------------------------------
-            OTHER STYLES THAT MIGHT BE USEFUL
-        ------------------------------------- */
         .last {
             margin-bottom: 0;
         }
@@ -190,39 +136,7 @@
         .alignleft {
             text-align: left;
         }
-
-        /* -------------------------------------
-            ALERTS
-            Change the class depending on warning email, good email or bad email
-        ------------------------------------- */
-        .alert {
-            font-size: 16px;
-            color: #fff;
-            font-weight: 500;
-            padding: 20px;
-            text-align: center;
-            border-radius: 3px 3px 0 0;
-        }
-        .alert a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-        }
-        .alert.alert-warning {
-            background: #f8ac59;
-        }
-        .alert.alert-bad {
-            background: #ed5565;
-        }
-        .alert.alert-good {
-            background: #1ab394;
-        }
-
-        /* -------------------------------------
-            INVOICE
-            Styles for the billing table
-        ------------------------------------- */
+        
         .invoice {
             margin: 40px auto;
             text-align: left;
@@ -243,9 +157,6 @@
             font-weight: 700;
         }
 
-        /* -------------------------------------
-            RESPONSIVE AND MOBILE FRIENDLY STYLES
-        ------------------------------------- */
         @media only screen and (max-width: 640px) {
             h1, h2, h3, h4 {
                 font-weight: 600 !important;
@@ -276,6 +187,11 @@
                 width: 100% !important;
             }
         }
+        @media only print{
+            .print{
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -294,19 +210,25 @@
             <div class="content">
                 <table class="main" width="100%" cellpadding="0" cellspacing="0">
                     <tbody><tr>
+                    <a href="report.php" class="print text-dark btn btn-close mt-2 mb-2"></a>
                         <td class="content-wrap aligncenter">
                             <table width="100%" cellpadding="0" cellspacing="0">
-                                <tbody><tr>
-                                    <td class="content-block">
-                                        <h2 class="fw-bold">Payment SPP</h2>
-                                    </td>
+                                <tbody>
+                                    <tr>
+                                        <td class="content-block">
+                                            <h2 class="fw-bold">Payment SPP</h2>
+                                        </td>
                                 </tr>
                                 <tr>
                                     <td class="content-block">
                                         <table class="invoice">
                                             <tbody>
                                                 <tr>
-                                                    <td><?= $datas['namest']?><br>Id Pay : <?= $datas['idpay'] ?><br>Date <?php echo date('d/m/y')?></td>
+                                                    <td style="float:left">Date : <?php echo date('d/m/y') ?><br>ID Pay : <?= $datas['idpay'] ?></td>
+                                                    <td style="float:right"><?= $datas['idstaff']?> - <?= $datas['namest']?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="fw-bold">Student Name : <?= $datas['name']?><br></td>
@@ -314,20 +236,21 @@
                                             <tr>
                                                 <td>
                                                     <table class="invoice-items" cellpadding="0" cellspacing="0">
-                                                        <tbody><tr>
-                                                            <td></td>
-                                                            <td class="alignright">$ 20.00</td>
+                                                        <tbody>
+                                                        <tr class="fw-bold">
+                                                            <td >NISN</td>
+                                                            <td class="alignright"><?= $datas['nisn']?></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Service 2</td>
-                                                            <td class="alignright">$ 10.00</td>
+                                                            <td>Class</td>
+                                                            <td class="alignright"><?= $datas['clsname']?> <?= $datas['skillcom']?></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Service 3</td>
-                                                            <td class="alignright">$ 6.00</td>
+                                                            <td>Month and Year Paid</td>
+                                                            <td class="alignright"><?= $datas['paymonth']?> - <?= $datas['payyear']?></td>
                                                         </tr>
                                                         <tr class="total">
-                                                            <td class="alignright" width="70%">Total :</td>
+                                                            <td width="70%">Total :</td>
                                                             <td class="alignright"><?=$datas['payamount']?></td>
                                                         </tr>
                                                     </tbody></table>
@@ -337,7 +260,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><a href="" class="btn btn-dark mb-3 btn-sm text-white fw-bold"><ion-icon name="print" class="text-center" style="font-size: 20px;border-radius:50%"></ion-icon></a></td>
+                                    <td><button class="print btn btn-dark mb-3 btn-sm text-white fw-bold"><ion-icon name="print" onclick="window.print()" style="font-size: 20px;border-radius:50%"></ion-icon></button></td>
                                 </tr>
                             </tbody>
                         </table>
