@@ -75,7 +75,7 @@ if(!isset($_SESSION['username'])){
                         <select name="idspp" class="form-select">
                             <?php $query = $maru->query('SELECT * FROM spp')->fetchAll();
                             foreach ($query as $query) :?>
-                                <option value="<?php echo $query['idspp']?>"><?php echo $query['idspp']?></option>
+                                <option value="<?php echo $query['idspp']?>"><?php echo $query['idspp']?> - <?php echo $query['year']?> - <?php echo $query['nominal']?></option>
                             <?php endforeach ?>
                         </select>
                     </div>
@@ -84,7 +84,7 @@ if(!isset($_SESSION['username'])){
                         <select name="idcls" class="form-select">
                             <?php $query = $maru->query('SELECT * FROM class')->fetchAll(); 
                             foreach ($query as $query) :?>
-                                <option value="<?php echo $query['idcls']?>"><?php echo $query['idcls']?></option>
+                                <option value="<?php echo $query['idcls']?>"><?php echo $query['idcls']?> - <?php echo $query['clsname']?> - <?php echo $query['skillcom']?></option>
                             <?php endforeach ?>
                         </select>
                     </div>

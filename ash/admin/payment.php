@@ -267,7 +267,6 @@ if(isset($_GET['nisn'])){
                         <select name="payyear" class="form-select" size="1">
                             <?php
                                 for ($i=1999;$i<=2025;$i++){
-                                    echo "<option selected> </option>";
                                     echo "<option value=".$i.">".$i."</option>";
                                 }
                             ?>

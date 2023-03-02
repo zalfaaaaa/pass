@@ -223,7 +223,7 @@ if(!isset($_SESSION['username'])){
                         <td><?=$datas['payamount']?></td>
                         <td><?=$datas['paydate']?></td>
                         <td>
-                            <a href="detail-h.php?idspp=<?=$datas['idspp'];?>" class="btn btn- mb-3 btn-sm text-white fw-bold"><ion-icon name="information" class="text-center" style="font-size: 20px;background-color:#82CD47;border-radius:50%"></ion-icon></a>
+                            <a href="detail-h.php?nisn=<?=$datas['nisn'];?>" class="btn btn- mb-3 btn-sm text-white fw-bold"><ion-icon name="information" class="text-center" style="font-size: 20px;background-color:#82CD47;border-radius:50%"></ion-icon></a>
                         </td>
                     </tr>
                 </tbody>

@@ -191,9 +191,8 @@ if(!isset($_SESSION['username'])){
                 <div class="d-grip gap-2 col-12">
                 <div class="card mt-5 mb-5"  style="width: 60rem;">
                 <div class="card-body">
-                <div class="card-tittle mt-2"><a href="history.php" class="btn btn-close"></a><h4 style="font-family: 'DM Serif Display', serif;" class="fw-bold text-center">PAYMENT DATA
-                </h4></div>
-                <table class="table table-borderless table-hover mt-4 text-center" style="border-radius: 20px;background:#fff;box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.08), 
+                <div class="card-title mt-3"><h4 style="font-family: 'DM Serif Display', serif;" class="fw-bold text-center">REPORT</h4></div>
+                <table class="table table-borderless table-hover mt-5 text-center" style="border-radius: 20px;background:#fff;box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.08), 
                 -3px -3px 3px #fff;;">
                 <thead>
                     <tr style="font-family: 'DM Serif Display', serif;" class="fw-bold">
@@ -201,35 +200,31 @@ if(!isset($_SESSION['username'])){
                         <th scope="col">STAFF</th>
                         <th scope="col">NISN</th>
                         <th scope="col">NAME</th>
-                        <th scope="col">CLASS</th>
                         <th scope="col">TOTAL</th>
                         <th scope="col">YEAR</th>
-                        <th scope="col">MONTH</th>
-                        <th scope="col">DATE</th>
-                        <th scope="col">ID SPP</th>
+                        <th scope="col">ACTION</th>
                     </tr>
                 </thead>
                 <?php 
+
+                    $no=1;
                     
                     include('../connect.php');
-                    
-                    $nisn = $_GET['nisn'];
-                    $no=1;
-                    $query = $maru->query("SELECT * FROM payment INNER JOIN staff ON payment.idstaff = staff.idstaff INNER JOIN student ON payment.nisn = student.nisn INNER JOIN class ON student.idcls = class.idcls WHERE payment.nisn = $nisn")->fetchAll();
-                    
+
+                    $query = $maru->query("SELECT * FROM payment INNER JOIN staff ON payment.idstaff = staff.idstaff INNER JOIN student ON payment.nisn = student.nisn")->fetchAll();
+
                     foreach ($query as $datas):?>
                 <tbody>
                     <tr>
                         <td><?php echo $no;$no++; ?></td>
-                        <td><?=$datas['namest']?></a></td>
-                        <td><?=$datas['nisn']?></a></td>
-                        <td><?=$datas['name']?></a></td>
-                        <td><?=$datas['clsname']?></td>
+                        <td><a href="staff.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$datas['namest']?></a></td>
+                        <td><a href="student.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$datas['nisn']?></a></td>
+                        <td><a href="student.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$datas['name']?></a></td>
                         <td><?=$datas['payamount']?></td>
-                        <td><?=$datas['payyear']?></td>
-                        <td><?=$datas['paymonth']?></td>
                         <td><?=$datas['paydate']?></td>
-                        <td><?=$datas['idspp']?></td>
+                        <td>
+                            <a href="print.php?idpay=<?=$datas['idpay'];?>" class="btn btn-dark mb-3 btn-sm text-white fw-bold"><ion-icon name="print" class="text-center" style="font-size: 20px;border-radius:50%"></ion-icon></a>
+                        </td>
                     </tr>
                 </tbody>
                 <?php endforeach ?>
