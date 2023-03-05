@@ -193,7 +193,7 @@ if(isset($_GET['nisn'])){
         <a href="class.php"><ion-icon name="book"></ion-icon>&emsp;Class</a>
       </div>
     </div>
-    <!-- <a href="report.php"><ion-icon name="receipt"></ion-icon>&emsp;Report</a> -->
+    <a href="report.php"><ion-icon name="receipt"></ion-icon>&emsp;Report</a>
   </div> 
   <!-- end sidebar -->
   <!-- navbar -->
@@ -240,10 +240,10 @@ if(isset($_GET['nisn'])){
                     <div class="col mt-2 mb-3">
                         <label for="form-label" class="fw-bold mb-1">Id Staff</label>
                         <select name="idstaff" class="form-select" required>
+                              <option selected></option>
                             <?php $query = $maru->query('SELECT * FROM staff')->fetchAll();
                             foreach ($query as $query) :?>
-                                <option selected></option>
-                                <option value="<?php echo $query['idstaff']?>"><?php echo $query['idstaff']?></option>
+                                <option value="<?php echo $query['idstaff']?>"><?php echo $query['idstaff']?> - <?= $query['namest']?></option>
                             <?php endforeach ?>
                         </select>
                     </div>
@@ -254,17 +254,25 @@ if(isset($_GET['nisn'])){
                             SPP Pay Month	
                     </label>
                     <select class="form-select" name="paymonth">
-                        <?php
-                            $o = array ("", "January", "February", "March", "April", "May" ,"June", "July", "August", "September", "October", "November", "December"); 
-                            for ($z=1;$z<=12;$z++){
-                                echo "<option value=".$z.">".$o[$z]."</option>";
-                            }
-                        ?>
+                      <option selected></option>
+                      <option value="1">January</option>
+                      <option value="2">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
                     </select>
                     </div>
                     <div class="col input-group mb-3 mt-3">
                         <label class="input-group-text">Year</label>
                         <select name="payyear" class="form-select" size="1">
+                          <option selected></option>
                             <?php
                                 for ($i=1999;$i<=2025;$i++){
                                     echo "<option value=".$i.">".$i."</option>";

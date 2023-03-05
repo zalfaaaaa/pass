@@ -144,6 +144,12 @@ if(!isset($_SESSION['username'])){
                 0 6px 20px 0 rgba(0, 0, 0, 0.20);
             margin-left: 40px;
         }
+        .hover-1{
+            color:#0b0b0b;
+        }
+        .hover-1:hover {
+            color: #3A98B9;
+        }
     </style>
 </head>
 <body>
@@ -201,13 +207,13 @@ if(!isset($_SESSION['username'])){
                 <tbody>
                     <tr>
                         <td><?php echo $no;$no++; ?></td>
-                        <td><?=$datas['namest']?></td>
-                        <td><?=$datas['nisn']?></td>
-                        <td><?=$datas['name']?></td>
+                        <td><a href="staff.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$datas['namest']?></a></td>
+                        <td><a href="student.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$datas['nisn']?></a></td>
+                        <td><a href="student.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$datas['name']?></a></td>
                         <td><?=$datas['payamount']?></td>
                         <td><?=$datas['paydate']?></td>
                         <td>
-                            <a href="detail-h.php?idspp=<?=$datas['idspp'];?>" class="btn btn- mb-3 btn-sm text-white fw-bold"><ion-icon name="information" class="text-center" style="font-size: 20px;background-color:#82CD47;border-radius:50%"></ion-icon></a>
+                            <a href="detail-h.php?nisn=<?=$datas['nisn'];?>" class="btn btn- mb-3 btn-sm text-white fw-bold"><ion-icon name="information" class="text-center" style="font-size: 20px;background-color:#82CD47;border-radius:50%"></ion-icon></a>
                         </td>
                     </tr>
                 </tbody>

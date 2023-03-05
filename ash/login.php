@@ -28,7 +28,7 @@ if(isset($_SESSION['username'])){
     <style>
         body{
             font-family: 'Poppins', sans-serif;
-            background-image: linear-gradient(to right, #DECBA4, #849FBD);
+            background-image: linear-gradient(to right, brown, pink);
         }
         .beom{
             float:right;

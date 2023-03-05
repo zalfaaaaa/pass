@@ -6,8 +6,11 @@ include('../connect.php');
 $query = $maru->query('SELECT * FROM staff')->fetchAll();
 
 if(!isset($_SESSION['username'])){
-    header("location:../login.php");
+  if ($_SESSION['level']=='admin'){
+    header("location:login.php");
+  }
 }
+
 $nisn = "";
 if(isset($_GET['nisn'])){
   $nisn = $_GET['nisn'];
@@ -162,11 +165,17 @@ if(isset($_GET['nisn'])){
                 0 6px 20px 0 rgba(0, 0, 0, 0.20);
             margin-left: 40px;
         }
+        .hover-1{
+            color:#0b0b0b;
+        }
+        .hover-1:hover {
+            color: #3A98B9;
+        }
     </style>
 </head>
 <body>
-  <!-- sidebar -->
-  <div id="mySidenav" class="sidenav">
+   <!-- sidebar -->
+   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="profile">
       <center><img src="../admin/img/<?= $_SESSION['img']; ?>" class="hyv" width="100" alt=""></center>
@@ -221,10 +230,10 @@ if(isset($_GET['nisn'])){
                     <div class="col mt-2 mb-3">
                         <label for="form-label" class="fw-bold mb-1">Id Staff</label>
                         <select name="idstaff" class="form-select" required>
+                              <option selected></option>
                             <?php $query = $maru->query('SELECT * FROM staff')->fetchAll();
                             foreach ($query as $query) :?>
-                                <option selected></option>
-                                <option value="<?php echo $query['idstaff']?>"><?php echo $query['idstaff']?></option>
+                                <option value="<?php echo $query['idstaff']?>"><?php echo $query['idstaff']?> - <?= $query['namest']?></option>
                             <?php endforeach ?>
                         </select>
                     </div>
@@ -235,20 +244,27 @@ if(isset($_GET['nisn'])){
                             SPP Pay Month	
                     </label>
                     <select class="form-select" name="paymonth">
-                        <?php
-                            $o = array ("", "January", "February", "March", "April", "May" ,"June", "July", "August", "September", "October", "November", "December"); 
-                            for ($z=1;$z<=12;$z++){
-                                echo "<option value=".$z.">".$o[$z]."</option>";
-                            }
-                        ?>
+                      <option selected></option>
+                      <option value="1">January</option>
+                      <option value="2">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
                     </select>
                     </div>
                     <div class="col input-group mb-3 mt-3">
                         <label class="input-group-text">Year</label>
                         <select name="payyear" class="form-select" size="1">
+                          <option selected></option>
                             <?php
                                 for ($i=1999;$i<=2025;$i++){
-                                    echo "<option selected> </option>";
                                     echo "<option value=".$i.">".$i."</option>";
                                 }
                             ?>
@@ -267,8 +283,56 @@ if(isset($_GET['nisn'])){
          </div>
       </div>
     </div>
+    <!-- end form  -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+              <div class="container table-responsive">
+                <div class="d-grip gap-2 col-12">
+                <div class="card mt-5 mb-5"  style="width: 60rem;">
+                <div class="card-body">
+                <div class="card-tittle mt-2"><h4 class="fw-bold">Payment Data</h4></div>
+                <table class="table table-borderless table-hover mt-4 text-center" style="border-radius: 20px;background:#fff;box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.08), 
+                -3px -3px 3px #fff;;">
+                <thead>
+                    <tr style="font-family: 'DM Serif Display', serif;" class="fw-bold">
+                        <th scope="col">No</th>
+                        <th scope="col">Staff</th>
+                        <th scope="col">Nisn Student</th>
+                        <th scope="col">Student Name</th>
+                        <th scope="col">Pay Total</th>
+                        <th scope="col">Pay Date</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <?php 
+                    $query = $maru->query('SELECT staff.namest, payment.idpay, payment.nisn, student.name, payment.payamount, payment.paydate FROM ((payment INNER JOIN staff ON payment.idstaff = staff.idstaff) INNER JOIN student ON payment.nisn = student.nisn);')->fetchAll();
+                    $no=1;
+                    
+                    foreach ($query as $query):?>
+                <tbody>
+                    <tr>
+                        <td><?php echo $no;$no++; ?></td>
+                        <td><a href="staff.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$query['namest']?></a></td>
+                        <td><a href="student.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$query['nisn']?></a></td>
+                        <td><a href="student.php" class="hover-1 fw-bold" style="text-decoration: none;"><?=$query['name']?></a></td>
+                        <td><?=$query['payamount']?></td>
+                        <td><?=$query['paydate']?></td>
+                        <td>
+                            <a href="del-enpay.php?idpay=<?=$query['idpay'];?>" class="btn btn-danger mb-3 btn-sm text-white" style="border-radius:10px"><ion-icon name="trash-bin" class="text-center" style="font-size: 20px;"></ion-icon></a>
+                        </td>
+                    </tr>
+                </tbody>
+                <?php endforeach ?>
+                </table>
+                </div>
+                </div>
+                </div>
+             </div>  
+        </div>
+    </div>
   </div>
-  <script>
+<script>
     /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
   function openNav() {
     document.getElementById("mySidenav").style.width = "200px";

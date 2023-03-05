@@ -2,9 +2,6 @@
 
 session_start();
 
-include('../connect.php');
-$query = $maru->query('SELECT * FROM staff')->fetchAll();
-
 if(!isset($_SESSION['username'])){
     header("location:../login.php");
 }
@@ -147,6 +144,12 @@ if(!isset($_SESSION['username'])){
                 0 6px 20px 0 rgba(0, 0, 0, 0.20);
             margin-left: 40px;
         }
+        .hover-1{
+            color:#0b0b0b;
+        }
+        .hover-1:hover {
+            color: #3A98B9;
+        }
     </style>
 </head>
 <body>
@@ -200,9 +203,9 @@ if(!isset($_SESSION['username'])){
                     
                     include('../connect.php');
                     
-                    $id = $_GET['idspp'];
+                    $nisn = $_GET['nisn'];
                     $no=1;
-                    $query = $maru->query("SELECT * FROM payment INNER JOIN staff ON payment.idstaff = staff.idstaff INNER JOIN student ON payment.nisn = student.nisn INNER JOIN class ON student.idcls = class.idcls WHERE payment.idspp = $id")->fetchAll();
+                    $query = $maru->query("SELECT * FROM payment INNER JOIN staff ON payment.idstaff = staff.idstaff INNER JOIN student ON payment.nisn = student.nisn INNER JOIN class ON student.idcls = class.idcls WHERE payment.nisn = $nisn")->fetchAll();
                     
                     foreach ($query as $datas):?>
                 <tbody>

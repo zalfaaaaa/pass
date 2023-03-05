@@ -168,7 +168,7 @@ if(!isset($_SESSION['username'])){
         <a href="class.php"><ion-icon name="book"></ion-icon>&emsp;Class</a>
       </div>
     </div>
-    <!-- <a href="report.php"><ion-icon name="receipt"></ion-icon>&emsp;Report</a> -->
+    <a href="report.php"><ion-icon name="receipt"></ion-icon>&emsp;Report</a>
   </div> 
   <!-- end sidebar -->
   <!-- navbar -->
