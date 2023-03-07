@@ -15,5 +15,5 @@ if($query->rowCount()>0){
     $_SESSION['nisn'] = $nisn;
     header("location:home.php");
 }else {
-    header("location:login.php");
+    header('location:login.php?error=nisn invalid');
 }

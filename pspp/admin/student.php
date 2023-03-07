@@ -3,7 +3,7 @@
 session_start();
 
 include('../connect.php');
-$query = $maru->query('SELECT * FROM student')->fetchAll();
+$query = $maru->query("SELECT * FROM student INNER JOIN class ON student.idcls = class.idcls INNER JOIN spp ON student.idspp = spp.idspp;")->fetchAll();
 
 if(!isset($_SESSION['username'])){
     header("location:../login.php");
@@ -139,6 +139,12 @@ if(!isset($_SESSION['username'])){
         font-size: 30px;
         margin-right: 20px;
       }
+      .hover-1{
+            color:#0b0b0b;
+        }
+        .hover-1:hover {
+            color: #3A98B9;
+        }
     </style>
 </head>
 <body>
@@ -182,11 +188,13 @@ if(!isset($_SESSION['username'])){
             <thead>
                 <tr>
                 <th scope="col">No</th>
-                <th scope="col">Nisn</th>
-                <th scope="col">Nis</th>
+                <th scope="col">NISN</th>
+                <th scope="col">NIS</th>
                 <th scope="col">Name</th>
+                <th scope="col">Class</th>
                 <th scope="col">Image</th>
                 <th scope="col">Adress</th>
+                <th scope="col">SPP</th>
                 <th scope="col">Phone Number</th>
                 <th scope="col">Action</th>
                 </tr>
@@ -200,8 +208,10 @@ if(!isset($_SESSION['username'])){
                 <td><?=$query['nisn']?></td>
                 <td><?=$query['nis']?></td>
                 <td><?=$query['name']?></td>
+                <td><a href="class.php" class="hover-1 fw-bold" style="text-decoration:none"><?=$query['clsname']?> - <?=$query['skillsort']?></a></td>
                 <td><img src="img/<?=$query['img']; ?>" width="100" height="100" style="border-radius: 15px;" /></td>
                 <td><?=$query['address']?></td>
+                <td><?=$query['year']?></td>
                 <td><?=$query['phoneno']?></td>
                 <td class="align-items-center">
                     <a href="upd-stu.php?nisn=<?=$query['nisn'];?>" class="btn btn-sm text-white mb-3" style="background-color: #557153;border-radius:10px"><ion-icon name="create" style="font-size: 20px;"></ion-icon></a>

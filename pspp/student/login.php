@@ -38,6 +38,14 @@ if(isset($_SESSION['nisn'])){
 <body>
 <div class="container" style="margin-top: 80px;">
   <div class="row">
+  <?php if(isset($_GET['error'])) : ?>
+      <div class="container-fluid">
+        <div class="alert alert-danger text-center mb-3" style="width:340px;margin:auto;border-radius:30px" role="alert">
+          <a href="login.php" class="btn btn-close" type="button" style="float: left;"></a>
+          <span class="text-center fw-bold"><?= $_GET['error']?><ion-icon name="alert" class="fs-5"></ion-icon></span>
+        </div>
+      </div>
+    <?php endif ?>
     <div class="col">
       <!-- Column -->
     </div>

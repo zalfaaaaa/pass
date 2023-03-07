@@ -199,15 +199,15 @@ if(!isset($_SESSION['username'])){
                 </thead>
                 <?php 
                     $no=1;
-                    foreach ($query as $query):?>
+                    foreach ($query as $datas):?>
                 <tbody>
                     <tr>
                         <td><?php echo $no;$no++; ?></td>
-                        <td><?=$query['year']?></td>
-                        <td><?=$query['nominal']?></td>
+                        <td><?=$datas['year']?></td>
+                        <td><?=$datas['nominal']?></td>
                         <td>
-                            <a href="upd-spp.php?idspp=<?=$query['idspp'];?>" class="btn btn-sm text-white mb-3" style="background-color: #557153;border-radius:10px"><ion-icon name="create" style="font-size: 20px;"></ion-icon></a>
-                            <a href="del-spp.php?idspp=<?=$query['idspp'];?>" class="btn btn-danger mb-3 btn-sm text-white" style="border-radius:10px"><ion-icon name="trash-bin" class="text-center" style="font-size: 20px;"></ion-icon></a>
+                            <a href="upd-spp.php?idspp=<?=$datas['idspp'];?>" class="btn btn-sm text-white mb-3" style="background-color: #557153;border-radius:10px"><ion-icon name="create" style="font-size: 20px;"></ion-icon></a>
+                            <a href="del-spp.php?idspp=<?=$datas['idspp'];?>" class="btn btn-danger mb-3 btn-sm text-white" style="border-radius:10px"><ion-icon name="trash-bin" class="text-center" style="font-size: 20px;"></ion-icon></a>
                         </td>
                     </tr>
                 </tbody>
